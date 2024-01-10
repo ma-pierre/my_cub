@@ -9,7 +9,7 @@ DIR_OBJS		=	objs
 SRCS_NAMES		=	main.c\
 					init_map.c\
 					create_map.c\
-					end.c\
+					end_game.c\
 					move.c\
 
 OBJS_NAMES		=	${SRCS_NAMES:.c=.o}

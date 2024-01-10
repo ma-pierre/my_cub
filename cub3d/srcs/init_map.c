@@ -2,7 +2,7 @@
 #include "cub.h"
 
 
-void init_data(t_data *data)
+void init_map(t_data *data)
 {
     data->col_size = 25; 
     data->row_size = 9;
@@ -38,12 +38,19 @@ void init_data(t_data *data)
     }
 }
 
+void init_data(t_data *data)
+{
+    data->player_x = data->p_col * 64 + 32;
+    data->player_y = data->p_row * 64 + 32;
+    data->player_dir = M_PI / 2;
+    data->player_speed = 5;
+}
 
 void init_img(t_data *data)
 {
     data->img.win_width = data->col_size * 64;
     data->img.win_height = data->row_size * 64;
-    data->img.img_ptr = mlx_new_image(data->mlx->mlx, data->img.win_width, data->img.win_height); // Utilisation de '.' au lieu de '->'
-    data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian); // Utilisation de '.' au lieu de '->'
+    data->img.img_ptr = mlx_new_image(data->mlx->mlx, data->img.win_width, data->img.win_height);
+    data->img.addr = mlx_get_data_addr(data->img.img_ptr, &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
 }
 

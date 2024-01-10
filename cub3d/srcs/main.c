@@ -16,6 +16,7 @@ int main(void)
 
     
     data.mlx = &mlx;
+    init_map(&data);
     init_data(&data);
     mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, data.col_size * 64,
