@@ -55,3 +55,4 @@ void	ft_freetab(char **tab);
 void destroy(t_data *data);
 //move.c
 int handle_keypress(int keycode, t_data *data);
+void    draw_wall(t_data *data);

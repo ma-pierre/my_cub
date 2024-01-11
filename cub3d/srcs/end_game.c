@@ -14,12 +14,11 @@ void	ft_freetab(char **tab)
 
 void destroy(t_data *data)
 {
-     if (data->img.img_ptr)
-        mlx_destroy_image(data->mlx->mlx, data->img.img_ptr);
-    mlx_clear_window(data->mlx->mlx, data->mlx->win);
+	 if (data->img.img_ptr)
+		mlx_destroy_image(data->mlx->mlx, data->img.img_ptr);
+	mlx_clear_window(data->mlx->mlx, data->mlx->win);
 	mlx_destroy_window(data->mlx->mlx, data->mlx->win);
 	mlx_destroy_display(data->mlx->mlx);
 	ft_freetab(data->map);
 	free(data->mlx->mlx);
-
 }
