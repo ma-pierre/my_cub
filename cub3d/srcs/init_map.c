@@ -43,7 +43,7 @@ void init_data(t_data *data)
 	data->player_x = data->p_col * 64 + 32;
 	data->player_y = data->p_row * 64 + 32;
 	data->player_dir = M_PI / 2;
-	data->player_speed = 5;
+	data->player_speed = 0.5;
 }
 
 void init_img(t_data *data)

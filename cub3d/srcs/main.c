@@ -1,6 +1,9 @@
 #include "cub.h"
 
-
+#define KeyPressMask			(1L<<0)
+#define KeyReleaseMask			(1L<<1)
+#define KeyPress	2
+#define KeyRelease 3
 void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char    *dst;
@@ -21,7 +24,9 @@ int main(void)
 	mlx.mlx = mlx_init();
 	mlx.win = mlx_new_window(mlx.mlx, data.col_size * 64,
 			data.row_size * 64, "cubEya+Marine");
-	mlx_hook(mlx.win, 2, 1L<<0, handle_keypress, &data);
+	// mlx_hook(mlx.win, 2, 1L<<0, handle_keypress, &data);
+	mlx_hook(mlx.win, KeyPress, KeyPressMask, key_press, &data);
+	mlx_hook(mlx.win, KeyRelease, KeyReleaseMask, key_release, &data);
 	init_img(&data);
 	mlx_loop_hook(mlx.mlx, do_frame, &data);
 	mlx_loop(mlx.mlx);

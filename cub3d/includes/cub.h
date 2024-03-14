@@ -23,6 +23,14 @@ typedef struct s_img
 	int		win_width;
 }			t_img;
 
+typedef struct s_key
+{
+    int     s;
+    int     w;
+    int     d;
+    int     a;
+    int     q;
+}   t_key;
 
 typedef struct s_data
 {
@@ -36,9 +44,11 @@ typedef struct s_data
     double player_dir;
     double player_speed;
 
+    t_key   keys;
 	t_img	img;
     t_mlx	*mlx;
 }           t_data;
+
 
 // init_map.c
 void init_map(t_data *data);//fake valid data map, waiting for parsing
@@ -56,3 +66,5 @@ void destroy(t_data *data);
 //move.c
 int handle_keypress(int keycode, t_data *data);
 void    draw_wall(t_data *data);
+int key_press(int keycode, t_data *data);
+int key_release(int keycode, t_data *data);

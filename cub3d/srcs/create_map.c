@@ -62,6 +62,37 @@ void    draw_wall(t_data *data)
 
 int    do_frame(t_data *data)
 {
+	double  new_x;
+	double  new_y;
+
+	new_x = data->player_x;
+	new_y = data->player_y;
+
+	if (data->keys.q)
+		mlx_loop_end(data->mlx->mlx);
+
+	if (data->keys.w)
+	{
+		new_x -= data->player_speed * cos(data->player_dir);
+		new_y -= data->player_speed * sin(data->player_dir);
+	}
+	if (data->keys.s)
+	{
+		new_x += data->player_speed * cos(data->player_dir);
+		new_y += data->player_speed * sin(data->player_dir);
+	}
+
+	if (data->map[(int)(new_y / 64)][(int)(new_x / 64)] != '1')
+	{
+		data->player_x = new_x;
+		data->player_y = new_y;
+	}
+
+	if (data->keys.a)
+		data->player_dir -= 0.1;
+	if (data->keys.d)
+		data->player_dir += 0.1;
+
 	clear_image(data);
 	draw_wall(data);
 	draw_player(data);
