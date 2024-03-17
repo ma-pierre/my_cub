@@ -30,6 +30,8 @@ typedef struct s_key
     int     d;
     int     a;
     int     q;
+    int     l_arrow;
+    int     r_arrow;
 }   t_key;
 
 typedef struct s_data
@@ -43,6 +45,8 @@ typedef struct s_data
     double player_y;
     double player_dir;
     double player_speed;
+    double planeX;
+    double planeY;
 
     t_key   keys;
 	t_img	img;
@@ -64,7 +68,8 @@ void clear_image(t_data *data);
 void	ft_freetab(char **tab);
 void destroy(t_data *data);
 //move.c
-int handle_keypress(int keycode, t_data *data);
+void handle_keypress(t_data *data);
 void    draw_wall(t_data *data);
 int key_press(int keycode, t_data *data);
 int key_release(int keycode, t_data *data);
+

@@ -4,6 +4,7 @@
 #define KeyReleaseMask			(1L<<1)
 #define KeyPress	2
 #define KeyRelease 3
+
 void my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char    *dst;
